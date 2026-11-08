@@ -1,0 +1,36 @@
+name: EmperorsAuth
+version: '${project.version}'
+main: com.emperorssmp.auth.EmperorsAuth
+api-version: '1.21'
+authors: [EmperorsSMP]
+description: Secure login and registration system for Emperors SMP
+commands:
+  login:
+    description: Log in to your account
+    usage: /login <password>
+    aliases: [l]
+  register:
+    description: Create your account
+    usage: /register <password> <confirm>
+    aliases: [reg]
+  changepassword:
+    description: Change your password
+    usage: /changepassword <old> <new>
+    aliases: [cp, changepass]
+  logout:
+    description: Log out of your account
+    usage: /logout
+  unregister:
+    description: Delete your account
+    usage: /unregister <password>
+  emperorsauth:
+    description: Admin commands
+    usage: /emperorsauth <reload|info|unregister|setpassword|forcelogin>
+    aliases: [eauth]
+permissions:
+  emperorsauth.admin:
+    description: Use admin commands
+    default: op
+  emperorsauth.bypass:
+    description: Skip authentication entirely
+    default: false
