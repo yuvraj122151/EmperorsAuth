@@ -1,0 +1,47 @@
+# ===== EmperorsAuth configuration =====
+
+# Seconds a player has to log in / register before being kicked
+login-timeout-seconds: 60
+# How often (seconds) the login/register reminder is repeated in chat
+reminder-interval-seconds: 10
+
+# Brute-force protection
+max-login-attempts: 3
+# After max attempts the player is kicked and their IP is locked out (0 = no lockout)
+lockout-minutes: 10
+
+# Skip the password if the player reconnects from the same IP in time
+session:
+  enabled: true
+  minutes: 30
+
+password:
+  min-length: 6
+  max-length: 64
+  require-digit: false
+  # Passwords that are always refused (case-insensitive)
+  blocked: [password, 123456, 1234567, 12345678, 123456789, qwerty, abc123, letmein, minecraft, emperors, emperorssmp, iloveyou]
+
+accounts:
+  # Max accounts registered from one IP (0 = unlimited)
+  max-per-ip: 3
+
+# Names that don't match are refused at join
+username-regex: "^[A-Za-z0-9_]{3,16}$"
+
+# Glowing gold shimmer title shown until the player logs in
+animated-title:
+  enabled: true
+  text: "EMPERORS SMP"
+
+restrictions:
+  blind-until-login: true
+  # Join/quit messages are only shown once the player is authenticated
+  hide-join-quit-until-login: true
+  # Commands usable before logging in (no slash, lowercase)
+  allowed-commands: [login, l, register, reg]
+
+# Optional Discord logging (registrations, logins, failed attempts, lockouts)
+discord-webhook:
+  enabled: false
+  url: ""
